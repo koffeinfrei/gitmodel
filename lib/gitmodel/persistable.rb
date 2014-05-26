@@ -8,7 +8,6 @@ module GitModel
         extend ActiveModel::Naming
         include ActiveModel::Validations
         include ActiveModel::Dirty
-        include ActiveModel::Observing
         include ActiveModel::Translation
 
         define_model_callbacks :initialize, :find, :touch, :only => :after
