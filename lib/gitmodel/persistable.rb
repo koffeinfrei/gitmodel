@@ -13,7 +13,7 @@ module GitModel
         define_model_callbacks :initialize, :find, :touch, :only => :after
         define_model_callbacks :save, :create, :update, :destroy
 
-        cattr_accessor :index, true
+        cattr_accessor :index
         self.index = GitModel::Index.new(self)
       end
 
