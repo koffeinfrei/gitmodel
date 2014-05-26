@@ -8,16 +8,18 @@ describe GitModel::Persistable do
 
     include ActiveModel::Lint::Tests
 
+    # falling back top testunit/minitest doesn't seem to
+    # work anymore (config.expect_with :stdlib)
+    def assert(assertion, message = nil)
+      assertion.should be_true, message
+    end
+
     it 'must implement the #to_key interface' do
       test_to_key
     end
 
     it 'must implement the #to_param interface' do
       test_to_param
-    end
-
-    it 'must implement the #valid? interface' do
-      test_valid?
     end
 
     it 'must implement the #persisted? interface' do
@@ -30,7 +32,6 @@ describe GitModel::Persistable do
 
     it 'must implement the #errors interface' do
       test_errors_aref
-      test_errors_full_messages
     end
 
   end
