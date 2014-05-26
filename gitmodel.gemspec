@@ -17,17 +17,18 @@ Gem::Specification.new do |s|
     of all changes.
   DESC
 
-  s.add_dependency 'activemodel', '~> 3.0.1'
-  s.add_dependency 'activesupport', '~> 3.0.1'
+  s.add_dependency 'activemodel', '~> 4.1.1'
+  s.add_dependency 'activesupport', '~> 4.1.1'
   s.add_dependency 'dalli'
-  s.add_dependency 'grit', '>= 2.3.0'
-  s.add_dependency 'lockfile', '>= 1.4.3'
+  s.add_dependency 'grit', '>= 2.3.0' # TODO -> rugged
+  s.add_dependency 'lockfile', '~> 2.1.3'
   s.add_dependency 'rake'
-  s.add_dependency 'yajl-ruby', '>= 0.8.2'
+  s.add_dependency 'yajl-ruby', '~> 1.2.0'
 
-  s.add_development_dependency 'ZenTest', '>= 4.4.0'
+  s.add_development_dependency 'ZenTest', '~> 4.10.0'
   s.add_development_dependency 'autotest', '>= 4.4.1'
-  s.add_development_dependency 'rspec', '>= 2.0.1'
+  s.add_development_dependency 'rspec', '~> 2.14.1'
+  s.add_development_dependency 'pry'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
