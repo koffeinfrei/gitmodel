@@ -22,7 +22,7 @@ module GitModel
     
   
     def initialize(args = {})
-      _run_initialize_callbacks do
+      run_callbacks(:initialize) do
         @new_record = true 
         self.attributes = {}
         self.blobs = {}
@@ -107,7 +107,7 @@ module GitModel
     #   :commit_message
     # Returns false if validations failed, otherwise returns the SHA of the commit
     def save(options = {})
-      _run_save_callbacks do 
+      run_callbacks(:save) do
         raise GitModel::NullId unless self.id
 
         if new_record?
@@ -168,7 +168,7 @@ module GitModel
     private
 
     def load(dir, branch)
-      _run_find_callbacks do
+      run_callbacks(:find) do
         # remove dangerous ".."
         # todo find a better way to ensure path is safe
         dir.gsub!(/\.\./, '')
